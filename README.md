@@ -68,10 +68,12 @@ For each new app in `src/constants.js`, provide:
 
 * (OPTIONAL) `deletable`: true or false; whether the user can delete the app. `false` by default.
 
+* (OPTIONAL) `editable`: true or false: whether the app can be edited in the UI after being created. This cannot be changed from the UI later.
+
 ### As URL to a page
 
 #### In Code
-Using `StaticWindow` React component, reference the `id` that uses the URL you need. 
+Using `StaticWindow` React component, reference the `appid` that uses the URL you need. 
 
 Example:
 1. Change `src/constants.js` to include your new app
@@ -96,7 +98,7 @@ export const BUILT_IN_APPS = {
  <StaticWindow appid="mynewapp"/>
 ```
 #### In browser
-After running the app manager, navigate to the top left and open `Add New Web App` window to add new app providing `appid`, `title`, `url`, `width`, `height`, `deletable`, and `single` from the UI selection.
+After running the app manager, navigate to the top left and open `Add New Web App` window to add new app providing `appid`, `title`, `url`, `width`, `height`, `deletable`, `single`, and `editable` from the UI selection.
 
 The `Add Web App` React component uses the `createWindow` redux action passing in the mentioned parameters. Any other React component can perform this action, given it connects to the Redux store.
 See `src/apps/AddWebApp.js` for a working example.
